@@ -1,0 +1,53 @@
+<div class="osp-page-container scrollable">
+  <div class="row full-width">
+    <div class="twelve columns">
+      <div soho-busyindicator [blockUI]="true" [activated]="isBusy">
+        <!-- Soho Datagrid Wrapper with Toolbar and Search -->
+        <div soho-datagrid-wrapper>
+          <div class="toolbar">
+            <div class="title">
+              <div soho-selection-count>
+                <span class="datagrid-result-count"></span>
+              </div>
+            </div>
+            
+            <soho-toolbar-button-set>
+              <input
+                soho-searchfield
+                aria-label="Search"
+                id="treegrid-repro-search"
+                name="treegrid-repro-search"
+                placeholder="{{ appLanguage.keyword_placeholder }}"
+                class="searchfield"
+                soho-tooltip
+                [title]="searchTooltipText"
+              />
+
+              <div class="separator"></div>
+
+              <button
+                id="treegrid-repro-refresh"
+                soho-button="tertiary"
+                icon="refresh"
+                data-action="refresh"
+                [disabled]="isBusy"
+                (click)="refresh()"
+              ></button>
+            </soho-toolbar-button-set>
+          </div>
+
+          <!-- The TreeGrid -->
+          @if (datagridOptions) {
+            <div
+              #treeGrid
+              soho-datagrid
+              id="treegrid-repro-grid"
+              [gridOptions]="datagridOptions"
+            ></div>
+          }
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

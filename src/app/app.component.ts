@@ -20,6 +20,7 @@ import {
 } from 'ids-enterprise-ng';
 import { HeaderComponent } from './header/header.component';
 import { CommonModule } from '@angular/common';
+import { TreegridSearchComponent } from './treegrid-search/treegrid-search.component';
 
 const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
   { text: 'Admin', value: 'admin', icon: 'app-ac' },
@@ -32,7 +33,7 @@ const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
 ];
 
 @Component({
-  imports: [ HeaderComponent, SohoComponentsModule, CommonModule ],
+  imports: [HeaderComponent, SohoComponentsModule, CommonModule, TreegridSearchComponent],
   selector: 'body', // eslint-disable-line
   templateUrl: 'app.component.html',
   styleUrls: ['./app.component.css'],
